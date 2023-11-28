@@ -127,17 +127,20 @@ form input:focus {
     border-color: rgba(0, 0, 0, 0.626);
 }
 
-.task {
-    margin-top: 40px;
-}
-
 .list-task {
     font-size: 18px;
-    margin: 20px 0px 5px 25px;
+    margin: 0px 0px 5px 25px;
 }
 
 .caractere-alert {
     color: rgb(193, 5, 5);
     font-size: 12px;
     opacity: 0;
+}
+
+.delete-task {
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border-width: 1px;
 }

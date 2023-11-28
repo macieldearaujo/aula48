@@ -1,4 +1,4 @@
-const task = document.querySelector('.js-task');
+const task = document.querySelector('.js-list-task');
 const taskInput = document.querySelector('.js-input-task');
 const taskButton = document.querySelector('.js-button-task');
 
@@ -14,15 +14,30 @@ function createAlert(opacity) {
     const alert = document.querySelector('.caractere-alert');
     alert.innerText = `* Limite de caracteres: ${taskInput.value.length}/70`;
     alert.style.opacity = opacity;
-    // alert.innerText = '* Máximo de caracteres: 39';
-    // alert.setAttribute('class', 'caractere-alert');
-    // task.appendChild(alert);
 }
+
+document.addEventListener('keypress', (e) => { 
+    if(e.key === 'Enter') createItem();
+})
 
 document.addEventListener('click', (e) => {
     const el = e.target;
 
-    if(el.classList.contains('js-button-task')) {
-        console.log(taskInput.value);
-    }
+    if(el.classList.contains('js-button-task')) createItem();
 })
+
+function createItem() {
+    const textInput = taskInput.value;
+    const li = document.createElement('li');
+
+    li.innerText = textInput;
+    task.appendChild(li);
+    createButton(li);
+}
+
+function createButton(li) {
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = 'Apagar'
+    deleteButton.classList.add('js-delete-task', 'delete-task')
+    li.appendChild(deleteButton);
+}
