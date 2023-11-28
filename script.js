@@ -2,8 +2,13 @@ const task = document.querySelector('.js-list-task');
 const taskInput = document.querySelector('.js-input-task');
 const taskButton = document.querySelector('.js-button-task');
 
+enterListener();
+clickListener();
+
 taskInput.addEventListener('input', () => {
-    if (taskInput.value.length >= 70) {
+    const taskInputValue = taskInput.value;
+
+    if (taskInputValue.length >= 70) {
         createAlert(1);
     } else {
         createAlert(0);
@@ -16,15 +21,21 @@ function createAlert(opacity) {
     alert.style.opacity = opacity;
 }
 
-document.addEventListener('keypress', (e) => { 
-    if(e.key === 'Enter') createItem();
-})
+function enterListener() {
+    document.addEventListener('keypress', (e) => { 
+        const taskInputValue = taskInput.value;
+        if(taskInputValue.length > 0 && taskInputValue.length < 70 && e.key === 'Enter') createItem();
+    })
+}
 
-document.addEventListener('click', (e) => {
-    const el = e.target;
+function clickListener() {
+    document.addEventListener('click', (e) => {
+        const taskInputValue = taskInput.value;
 
-    if(el.classList.contains('js-button-task')) createItem();
-})
+        const el = e.target;
+        if(taskInputValue.length > 0 && taskInputValue.length < 70 && el.classList.contains('js-button-task')) createItem();
+    })
+}
 
 function createItem() {
     const textInput = taskInput.value;
