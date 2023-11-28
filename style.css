@@ -147,4 +147,9 @@ form input:focus {
     margin-left: 10px;
     border-radius: 5px;
     border-width: 1px;
+    cursor: pointer;
+}
+
+li {
+    margin: 10px 0px;
 }
