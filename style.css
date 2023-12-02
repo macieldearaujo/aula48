@@ -137,9 +137,8 @@ form input:focus {
 }
 
 .caractere-alert {
-    color: rgb(193, 5, 5);
+    color: rgb(0, 0, 0);
     font-size: 12px;
-    opacity: 0;
 }
 
 .delete-task {
